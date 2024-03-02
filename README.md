@@ -7,14 +7,22 @@ Exploring stock data with free api - doing some POC exploratory stuff.
 >
 >Thanks.
 
-building app by running:
+building app locally by running:
 ```
 docker image build -t stockapp:0.0.1 .
 ```
 
-running app by:
+running app locally by:
 ```
 docker run --rm -it stockapp:0.0.1 
+```
+
+
+Current process for POC testing images in GH:
+```
+docker login ghcr.io -u $GITHUB_USERNAME -p $GITHUB_TOKEN 
+docker pull ghcr.io/joshuaglass808/just-stocks:main
+docker run -it -e ALPHAVANTAGE_API_TOKEN=demo ghcr.io/joshuaglass808/just-stocks:main
 ```
 
 I was plotting graphs with matplotlib, but I am going to explore rendering a small local webpage with the data.
