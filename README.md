@@ -19,7 +19,6 @@ docker run --rm -it stockapp:0.0.1
 
 I was plotting graphs with matplotlib, but I am going to explore rendering a small local webpage with the data.
 
-
 Once I start getting a bit more serious the above wont matter and the below will be more of the path to follow:
 
 Im thinking for fun that I should make it a micro-service based system.
