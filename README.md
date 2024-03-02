@@ -14,7 +14,7 @@ docker image build -t stockapp:0.0.1 .
 
 running app locally by:
 ```
-docker run --rm -it stockapp:0.0.1 
+docker run --rm -it -e ALPHAVANTAGE_API_TOKEN=demo stockapp:0.0.1 
 ```
 
 
