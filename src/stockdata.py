@@ -1,10 +1,11 @@
 import requests
+import os
+
 #import matplotlib.pyplot as plt
 
 S_LIST = ["MSFT", "AVGO", "AMZN","GOOG","UNH","PANW","LLY","SNOW","MSTR","NFLX"]
 
-with open('config') as f: s = f.read()
-key = s.strip()
+key = os.environ['ALPHAVANTAGE_API_TOKEN']
 
 # replace the "demo" apikey below with your own key from https://www.alphavantage.co/support/#api-key
 url = "https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY&symbol={}&apikey={}"
