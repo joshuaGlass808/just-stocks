@@ -23,6 +23,7 @@ Once I start getting a bit more serious the above wont matter and the below will
 
 Im thinking for fun that I should make it a micro-service based system.
 
+
 1) A service can be used to capture a list of stocks periodically and then storing the data into a DB (probably sqlite for now since its free) and make sure we can use different DB - dealers choice. (docker container)
 
 2) A service that just acts as an API server listening for requests on which stock(s) a user wants to see thats only reading from the DB. (docker container)
