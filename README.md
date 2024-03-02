@@ -2,8 +2,10 @@
 Exploring stock data with free api - doing some POC exploratory stuff.
 
 > The point of this repo is just to have fun building things. Ill try to update the readme as I go along to keep instructions on how to build / run things on your own. At some point parts may require you to pay for a cloud provider account, unless its built via KIND. - Which is possible - not sure that my current computer would hang though :).
- If you'd like to contribute - go ahead, I would recommend you'd reach out to me though to discuss any planning.
- Thanks.
+>
+>If you'd like to contribute - go ahead, I would recommend you'd reach out to me though to discuss any planning.
+>
+>Thanks.
 
 building app by running:
 ```
