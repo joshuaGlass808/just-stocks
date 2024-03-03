@@ -1,1 +1,13 @@
 API - will be a dedicated API service, that could be consumed by Webby or any other service to get data we are storing.
+
+
+building app locally by running:
+```
+cd src/api
+docker image build -t api:0.0.1 .
+```
+
+running app locally by:
+```
+docker run -p 5000:5000 api:0.0.1 
+```
