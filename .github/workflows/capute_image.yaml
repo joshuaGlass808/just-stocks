@@ -1,4 +1,4 @@
-name: Publish Docker image
+name: Publish Capture Docker image
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: joshuaglass808/capture
+  IMAGE_NAME: joshuaglass808/just-stocks/capture
 
 jobs:
   build-and-push-image:
