@@ -11,3 +11,10 @@ running app locally by:
 ```
 docker run -p 5000:5000 api:0.0.1 
 ```
+
+To pull things from ghcr.io:
+```
+docker login ghcr.io -u $GITHUB_USERNAME -p $GITHUB_TOKEN 
+docker pull ghcr.io/joshuaglass808/just-stocks/api:main
+docker run -p 5000:5000 ghcr.io/joshuaglass808/just-stocks/api:main
+```
