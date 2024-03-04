@@ -10,19 +10,19 @@ Exploring stock data with free api - doing some POC exploratory stuff.
 building app locally by running:
 ```
 cd src/capture
-docker image build -t capture:0.0.1 .
+docker image build -t capture:0.0.2 .
 ```
 
 running app locally by:
 ```
-docker run --rm -it -e ALPHAVANTAGE_API_TOKEN=demo capture:0.0.1 
+docker run --rm -p 5000:5000 -v /just-stocks/db:/db -e ALPHAVANTAGE_API_TOKEN=demo --user $(id -u):$(id -g) capture:0.0.2 
 ```
 
 To pull things from ghcr.io:
 ```
 docker login ghcr.io -u $GITHUB_USERNAME -p $GITHUB_TOKEN 
 docker pull ghcr.io/joshuaglass808/just-stocks/capture:main
-docker run -it -e ALPHAVANTAGE_API_TOKEN=demo ghcr.io/joshuaglass808/just-stocks/capture:main
+docker run --rm -p 5000:5000 -v /just-stocks/db:/db -e ALPHAVANTAGE_API_TOKEN=demo --user $(id -u):$(id -g) ghcr.io/joshuaglass808/just-stocks/capture:main
 ```
 
 I was plotting graphs with matplotlib, but I am going to explore rendering a small local webpage with the data.
