@@ -18,3 +18,8 @@ docker login ghcr.io -u $GITHUB_USERNAME -p $GITHUB_TOKEN
 docker pull ghcr.io/joshuaglass808/just-stocks/capture:main
 docker run --rm -p 5000:5000 -v /just-stocks/db:/db -e ALPHAVANTAGE_API_TOKEN=demo --user $(id -u):$(id -g) ghcr.io/joshuaglass808/just-stocks/capture:main
 ```
+
+OS ENV defaults:
+- `ALPHAVANTAGE_API_TOKEN` = `"demo"`
+- `CAPTURE_API_SLEEP_TIME_SECONDS` = `60`
+- `CAPTURE_RUNTIME_ITERATION_SECONDS` = `3600`
