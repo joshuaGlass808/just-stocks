@@ -1,12 +1,33 @@
+import sqlite3
+
 from flask import Flask, json
 
-stocks = [{'MSFT': {'high': {'x': ['2024-03-01', '2024-02-23', '2024-02-16', '2024-02-09'], 'y': [415.87, 415.86, 420.74, 420.82]}, 'low': {'x': ['2024-03-01', '2024-02-23', '2024-02-16', '2024-02-09'], 'y': [403.85, 397.22, 403.39, 402.91]}, 'close': {'x': ['2024-03-01', '2024-02-23', '2024-02-16', '2024-02-09'], 'y': [415.5, 410.34, 404.06, 420.55]}}}]
 
 api = Flask(__name__)
 
+
+def get_stocks_from_db():
+    with sqlite3.connect("/db/stocks.db") as conn:
+        db = conn.cursor()
+        res = db.execute("SELECT date, stock, high, low, close from stocks;")
+        return res.fetchall()
+
+
+def organize_query_results(res):
+    results = {}
+    # 0:date, 1:stock, 2:high, 3:low, 4:close
+    for record in res:
+        if record[0] not in results:
+            results[record[0]] = {}
+        results[record[0]][record[1]] = {'high': record[2], 'low': record[3], 'close': record[4]}
+    return results
+
+
 @api.route('/stocks', methods=['GET'])
 def get_stocks():
-  return json.dumps(stocks)
+    stocks = organize_query_results(get_stocks_from_db())
+    return json.dumps(stocks)
+
 
 if __name__ == '__main__':
     api.run(debug=True, host='0.0.0.0', port=5000)
