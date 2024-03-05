@@ -5,10 +5,10 @@ import time
 
 # TODO: List below should come from some other source..
 S_LIST = ["AVGO", "META"] # "MSFT", "AMZN","GOOG","UNH","PANW","LLY","SNOW","MSTR","NFLX"]
-API_TOKEN = os.environ['ALPHAVANTAGE_API_TOKEN']
+API_TOKEN = os.getenv("ALPHAVANTAGE_API_TOKEN", "demo")
 
 
-def gather_stock_data():
+def stock_data_to_db():
     # replace the "demo" apikey below with your own key from https://www.alphavantage.co/support/#api-key
     url = "https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY&symbol={}&apikey={}"
     results = {}
@@ -38,7 +38,7 @@ def gather_stock_data():
 
 def main():
     while (True):
-        gather_stock_data()
+        stock_data_to_db()
         time.sleep(os.getenv('CAPTURE_RUNTIME_ITERATION_SECONDS', 3600)) # Run every hour.
 
 
