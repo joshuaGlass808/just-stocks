@@ -9,8 +9,9 @@ Exploring stock data with free api - doing some POC exploratory stuff.
 
 building app locally by running:
 ```
-cd src/capture
-docker image build -t capture:0.0.2 .
+make service=<api|capture|webby> tag=<tag to use> build
+ex:
+make service=capture tag=0.0.4 build
 ```
 
 running app locally by:

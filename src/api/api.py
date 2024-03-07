@@ -1,16 +1,10 @@
 import sqlite3
 
+from common_lib.db import stocks
 from flask import Flask, json
 
 
 api = Flask(__name__)
-
-
-def get_stocks_from_db():
-    with sqlite3.connect("/db/stocks.db") as conn:
-        db = conn.cursor()
-        res = db.execute("SELECT date, stock, high, low, close from stocks;")
-        return res.fetchall()
 
 
 def organize_query_results(res):
@@ -25,7 +19,7 @@ def organize_query_results(res):
 
 @api.route('/stocks', methods=['GET'])
 def get_stocks():
-    stocks = organize_query_results(get_stocks_from_db())
+    stocks = organize_query_results(stocks.get_all())
     return json.dumps(stocks)
 
 

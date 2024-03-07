@@ -1,12 +1,11 @@
-#Deriving the latest base image
 FROM python:latest
 
-COPY requirements.txt .
+COPY ../common-lib/ common_lib/
+RUN pip install -r common_lib/requirements.txt
 
+COPY capture/requirements.txt .
 RUN pip install -r requirements.txt
 
-# copy the content of the local src directory to the working directory
-COPY . .
+COPY capture/capturedata.py .
 
-# command to run on container start
-CMD [ "python", "./capturedata.py" ]
+CMD ["python", "./capturedata.py" ]
